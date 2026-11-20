@@ -11,17 +11,86 @@
     <header class="hero">
       <p class="eyebrow">A WRITTEN ALPHABET</p>
       <h1>Euanish</h1>
-      <p class="intro">Explore the 26 letters of the Euanish alphabet.</p>
+      <p class="intro">Learn to read and write Euanish, one step at a time.</p>
     </header>
 
-    <nav class="main-nav" aria-label="Main navigation">
-      <button class="nav-button active" id="show-alphabet" type="button">Alphabet reference</button>
+    <nav class="main-nav" id="main-nav" aria-label="Main navigation" hidden>
+      <button class="nav-button" id="show-home" type="button">Home</button>
+      <button class="nav-button" id="show-lessons" type="button">Lessons</button>
+      <button class="nav-button" id="show-alphabet" type="button">Alphabet reference</button>
       <button class="nav-button" id="show-learn" type="button">Learn the alphabet</button>
       <button class="nav-button" id="show-sentences" type="button">Sentence study</button>
       <button class="nav-button" id="show-free-writing" type="button">Free writing</button>
     </nav>
 
-    <section id="alphabet-page">
+    <section id="home-page" class="home-page">
+      <div class="home-welcome">
+        <p class="eyebrow">WELCOME TO</p>
+        <h2>Learn Euanish</h2>
+        <p>Explore the alphabet, practise your reading, and build your confidence one lesson at a time.</p>
+      </div>
+      <div class="home-tiles">
+        <button class="home-tile home-tile-featured" type="button" data-open-page="lessons">
+          <span class="home-tile-icon">✦</span>
+          <span class="home-tile-title">Start learning</span>
+          <span class="home-tile-description">Follow the lesson path and learn Euanish step by step.</span>
+          <span class="home-tile-link">View lessons →</span>
+        </button>
+        <button class="home-tile" type="button" data-open-page="alphabet">
+          <span class="home-tile-icon">⌘</span>
+          <span class="home-tile-title">Learn the alphabet</span>
+          <span class="home-tile-description">Explore all 26 Euanish letters and test your knowledge.</span>
+          <span class="home-tile-link">Open alphabet →</span>
+        </button>
+        <button class="home-tile" type="button" data-open-page="sentences">
+          <span class="home-tile-icon">文</span>
+          <span class="home-tile-title">Sentence study</span>
+          <span class="home-tile-description">Practise reading and writing complete sentences.</span>
+          <span class="home-tile-link">Practise sentences →</span>
+        </button>
+        <button class="home-tile" type="button" data-open-page="free-writing">
+          <span class="home-tile-icon">✎</span>
+          <span class="home-tile-title">Free writing</span>
+          <span class="home-tile-description">Write anything in English and see it translated into Euanish.</span>
+          <span class="home-tile-link">Start writing →</span>
+        </button>
+      </div>
+      <p class="home-progress" id="home-progress">Your learning progress will appear here.</p>
+    </section>
+
+    <section id="lessons-page" class="lessons-page" hidden>
+      <div class="learn-heading">
+        <p class="eyebrow">YOUR LEARNING PATH</p>
+        <h2>Euanish lessons</h2>
+        <p>Each lesson introduces a small group of similar-looking symbols and revisits what came before.</p>
+      </div>
+      <div class="lesson-map-wrap">
+        <div id="lesson-map" class="lesson-map" aria-label="Lesson pathway"></div>
+      </div>
+      <div id="lesson-workspace" class="lesson-workspace" hidden>
+        <div class="lesson-workspace-top">
+          <span id="lesson-number" class="lesson-kicker">LESSON 1</span>
+          <button id="lesson-map-back" class="secondary-button" type="button">Back to lessons</button>
+        </div>
+        <h3 id="lesson-title">The doubled-letter mark</h3>
+        <p id="lesson-description" class="lesson-description"></p>
+        <div id="lesson-symbols" class="lesson-symbols"></div>
+        <div id="lesson-example" class="lesson-example"></div>
+        <div id="lesson-question-area" class="lesson-question-area">
+          <p id="lesson-question" class="lesson-question"></p>
+          <div id="lesson-answers" class="lesson-answers"></div>
+          <p id="lesson-feedback" class="answer-feedback" aria-live="polite"></p>
+          <button id="lesson-next" class="next-button" type="button" disabled>Continue</button>
+        </div>
+        <div id="lesson-finished" class="lesson-finished" hidden>
+          <h3>Lesson complete!</h3>
+          <p id="lesson-finished-message"></p>
+          <button id="lesson-finish-button" class="next-button" type="button">Back to lesson path</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="alphabet-page" hidden>
     <section class="alphabet" aria-label="Euanish alphabet">
       <button class="letter-card" type="button" data-letter="A" aria-label="Letter A">
         <img src="glyphs/a.png" alt="Euanish symbol for A">
@@ -173,7 +242,11 @@
       </div>
       <div id="quiz-complete" class="quiz-complete" hidden>
         <h3>Alphabet complete!</h3>
-        <p>You’ve correctly identified all 26 Euanish letters.</p>
+        <p id="quiz-result-message">You’ve worked through all 26 Euanish letters.</p>
+        <div class="quiz-result-stats">
+          <div><strong id="first-try-score">26/26</strong><span>Correct first time</span></div>
+          <div><strong id="retry-score">0</strong><span>Corrected on retry</span></div>
+        </div>
         <button id="restart-quiz" class="next-button" type="button">Practise again</button>
       </div>
     </section>
@@ -292,7 +365,7 @@
       <p class="sentence-note">Euanish currently uses English spelling and word order, with each English letter replaced by its Euanish symbol. A doubled letter is shown once with the ⌟ mark above it.</p>
     </section>
 
-    <footer>EUANISH · ALPHABET REFERENCE</footer>
+    <footer>EUANISH · LEARN · PRACTISE · WRITE</footer>
   </main>
   <script src="script.js"></script>
 </body>
